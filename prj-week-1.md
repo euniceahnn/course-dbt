@@ -1,5 +1,5 @@
 How many users do we have? 130 
-select count(distinct user_id) from dev_db.dbt_eunzzygmailcom.stg_users
+`select count(distinct user_id) from dev_db.dbt_eunzzygmailcom.stg_users`
 
 On average, how many orders do we receive per hour?
 ~7-8 orders per hour / specifically 7.520833
