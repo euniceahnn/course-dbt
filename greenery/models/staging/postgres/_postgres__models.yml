@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_addresses
+    description: List of addresses on the platform 
+    columns:
+      - name: address_id
+        tests:
+          - not_null
+  - name: stg_events
+    description: Events that occur on the platform 
+  - name: stg_order_items
+    description: Unique order items 
+  - name: stg_orders 
+    description: Unique orders 
+  - name: stg_products 
+    description: Product information 
+  - name: stg_promos
+    description: Promo code information (promo amount, active Y/N)
+  - name: stg_users 
+    description: Information tied to users on the platform  
