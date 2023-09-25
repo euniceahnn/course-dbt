@@ -7,15 +7,69 @@ models:
       - name: address_id
         tests:
           - not_null
+
   - name: stg_events
     description: Events that occur on the platform 
+    columns:
+      - name: event_id
+        tests:
+          - not_null    
+          - unique
+
   - name: stg_order_items
     description: Unique order items 
+    columns:  
+      - name: product_id
+        tests:
+          - not_null
+      - name: quantity
+        tests: 
+          - positive_values
+          
   - name: stg_orders 
     description: Unique orders 
+    columns:
+      - name: order_id
+        tests:
+          - not_null    
+          - unique
+      - name: order_cost
+        tests:
+          - positive_values
+      - name: shipping_cost
+        tests:
+          - positive_values
+      - name: order_total
+        tests:
+          - positive_values               
+
   - name: stg_products 
     description: Product information 
+    columns:
+      - name: product_id
+        tests:
+          - not_null    
+          - unique
+      - name: product_price
+        tests:
+          - positive_values
+
   - name: stg_promos
     description: Promo code information (promo amount, active Y/N)
+    columns:
+      - name: promo_id
+        tests:
+          - not_null    
+          - unique
+      - name: discount
+        tests:
+          - positive_values
+
   - name: stg_users 
     description: Information tied to users on the platform  
+    columns:
+      - name: user_id
+        tests:
+          - not_null    
+          - unique    
+     
