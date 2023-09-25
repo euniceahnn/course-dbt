@@ -15,6 +15,20 @@ models:
         tests:
           - not_null    
           - unique
+      - name: user_id
+        tests:
+          - relationships:
+              to: ref('stg_users')
+              field: user_id 
+              
+      - name: event_type
+        tests:
+          - accepted_values:
+              values:
+                - checkout
+                - package_shipped
+                - add_to_cart
+                - page_view 
 
   - name: stg_order_items
     description: Unique order items 
