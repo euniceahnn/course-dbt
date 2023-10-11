@@ -3,7 +3,7 @@
     materialized='table'
   )
 }}
-dbt 
+
 SELECT
   e.event_id,
   e.session_id,

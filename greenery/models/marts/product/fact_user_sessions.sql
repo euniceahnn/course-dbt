@@ -10,8 +10,13 @@ with session_events_agg as (
     select * from {{ ref('stg_addresses') }}
 )
 
+, order_items as (
+    select * from {{ ref('stg_order_items') }}
+)
+
 select
   s.session_id,
+  coalesce(s.product_id, oi.product_id) as product_id,
   s.user_id,
   u.first_name,
   u.last_name,
@@ -33,3 +38,5 @@ left join users u
     on s.user_id = u.user_id
 left join addresses a 
     on u.address_id = a.address_id
+left join order_items oi 
+    on s.order_id = oi.order_id     
